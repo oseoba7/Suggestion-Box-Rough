@@ -1,0 +1,14 @@
+<h2> {{post.title}} </h2> Upvotes: {{post.upvotes}}
+
+<form ng-submit="addComment()" style="margin-top: 15px">
+       <div class="form-group">
+          <input type="text" class="form-control" placeholder="Comment your opinion!" ng-model="comment"></input>
+       </div>
+       <button type="submit" class="btn">Comment</button>
+</form>
+
+<h3>Previous Comments:</h3>	
+<div class="comment" ng-repeat="comm in post.comments | orderBy:'-upvotes'">
+
+	<p><i>{{comm.comment}}</i> <span class="glyphicon glyphicon-plus-sign" ng-click="upVoteC(comm)"></span> {{comm.upvotes}} </p>
+</div> 
